@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+
+# Gmail OAuth secrets — never commit these
+pressfriends/credentials.json
+pressfriends/token.json
+
+# Generated files
+pressfriends/preview.html
+pressfriends/logs/

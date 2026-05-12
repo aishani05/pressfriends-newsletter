@@ -1,0 +1,9 @@
+{
+  "org_name": "PressFriends",
+  "sender_name": "PressFriends Team",
+  "sender_email": "aishani.may13@gmail.com",
+  "subject_template": "PressFriends Newsletter — {month_year}",
+  "donation_link": "https://pressfriends.org/donate",
+  "volunteer_link": "https://pressfriends.org/volunteer",
+  "unsubscribe_email": "unsubscribe@pressfriends.org"
+}

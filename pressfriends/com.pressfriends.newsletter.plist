@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Mac launchd scheduler for the PressFriends newsletter.
+  Fires on the 1st of every month at 9:00am, even after the Mac
+  wakes from sleep (unlike cron, which silently skips missed fires).
+
+  SETUP (one time):
+    1. Edit the two paths below to match your actual username/location.
+    2. cp com.pressfriends.newsletter.plist ~/Library/LaunchAgents/
+    3. launchctl load ~/Library/LaunchAgents/com.pressfriends.newsletter.plist
+
+  VERIFY:
+    launchctl list | grep pressfriends
+
+  UNINSTALL:
+    launchctl unload ~/Library/LaunchAgents/com.pressfriends.newsletter.plist
+    rm ~/Library/LaunchAgents/com.pressfriends.newsletter.plist
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.pressfriends.newsletter</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <!-- Path to the Python in your venv -->
+    <string>/Users/gunaranjanramireddy/Downloads/python-project/venv/bin/python</string>
+    <!-- Path to the send script -->
+    <string>/Users/gunaranjanramireddy/Downloads/python-project/pressfriends/send_newsletter.py</string>
+  </array>
+
+  <!-- Run on the 1st of every month at 9:00am -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Day</key>
+    <integer>1</integer>
+    <key>Hour</key>
+    <integer>9</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+
+  <key>StandardOutPath</key>
+  <string>/Users/gunaranjanramireddy/Downloads/python-project/pressfriends/logs/launchd.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/gunaranjanramireddy/Downloads/python-project/pressfriends/logs/launchd.log</string>
+
+  <!-- Run even if the scheduled time was missed (e.g. machine was off) -->
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PressFriends Monthly Newsletter</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f2f4f7;font-family:Georgia,'Times New Roman',serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f2f4f7;">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
+
+        <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background-color:#ffffff;border-radius:10px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
+
+          <!-- Header -->
+          <tr>
+            <td style="background-color:#1a3a5c;padding:36px 40px 28px 40px;text-align:center;">
+              <h1 style="color:#ffffff;font-family:Georgia,serif;font-size:34px;letter-spacing:3px;margin:0 0 8px 0;">PRESSFRIENDS</h1>
+              <div style="width:50px;height:2px;background-color:#4a9fd4;margin:0 auto;"></div>
+            </td>
+          </tr>
+
+          <!-- Month banner -->
+          <tr>
+            <td style="background-color:#e8f2fa;padding:13px 40px;text-align:center;border-bottom:3px solid #1a3a5c;">
+              <p style="color:#1a3a5c;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;margin:0;letter-spacing:2px;text-transform:uppercase;">{{ month_year }} Newsletter</p>
+            </td>
+          </tr>
+
+          {% if hero_image_url %}
+          <!-- Hero photo -->
+          <tr>
+            <td style="padding:0;line-height:0;">
+              <img src="{{ hero_image_url }}" alt="{{ hero_image_alt }}" width="600"
+                style="width:100%;max-width:600px;height:auto;display:block;border:0;">
+            </td>
+          </tr>
+          {% endif %}
+
+          <!-- Greeting -->
+          <tr>
+            <td style="padding:36px 40px 8px 40px;">
+              <p style="color:#2c2c2c;font-size:17px;line-height:1.6;margin:0 0 14px 0;">Dear {{ recipient_name }},</p>
+              <p style="color:#444444;font-size:15px;line-height:1.8;margin:0;">
+                We hope this message finds you well and in good spirits. Thank you for being a valued member of the PressFriends family — your ongoing support means the world to our student volunteers and to the communities they serve.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Main content -->
+          <tr>
+            <td style="padding:28px 40px 10px 40px;">
+              <h2 style="color:#1a3a5c;font-size:21px;font-family:Georgia,serif;margin:0 0 18px 0;padding-bottom:12px;border-bottom:2px solid #e8f2fa;">{{ headline }}</h2>
+              {% for paragraph in body_paragraphs %}
+              <p style="color:#444444;font-size:15px;line-height:1.85;margin:0 0 16px 0;">{{ paragraph }}</p>
+              {% endfor %}
+            </td>
+          </tr>
+
+          {% if featured_story %}
+          <!-- Spotlight callout -->
+          <tr>
+            <td style="padding:4px 40px 24px 40px;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f0f7ff;border-left:4px solid #4a9fd4;border-radius:0 8px 8px 0;overflow:hidden;">
+                {% if spotlight_image_url %}
+                <tr>
+                  <td style="padding:0;line-height:0;">
+                    <img src="{{ spotlight_image_url }}" alt="{{ spotlight_image_alt }}" width="520"
+                      style="width:100%;height:auto;display:block;border:0;border-radius:0 8px 0 0;">
+                  </td>
+                </tr>
+                {% endif %}
+                <tr>
+                  <td style="padding:20px 24px;">
+                    <p style="color:#1a3a5c;font-family:Arial,sans-serif;font-size:11px;font-weight:bold;text-transform:uppercase;letter-spacing:2px;margin:0 0 10px 0;">&#9733; Volunteer Spotlight</p>
+                    <p style="color:#333333;font-size:14px;line-height:1.75;margin:0;font-style:italic;">{{ featured_story }}</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          {% endif %}
+
+          <!-- Divider -->
+          <tr>
+            <td style="padding:0 40px;">
+              <hr style="border:none;border-top:1px solid #e8e8e8;margin:0;">
+            </td>
+          </tr>
+
+          <!-- Donation CTA -->
+          <tr>
+            <td style="padding:32px 40px 16px 40px;text-align:center;">
+              <p style="color:#1a3a5c;font-family:Arial,sans-serif;font-size:11px;font-weight:bold;text-transform:uppercase;letter-spacing:2px;margin:0 0 10px 0;">Make a Difference</p>
+              <h3 style="color:#1a3a5c;font-size:20px;font-family:Georgia,serif;margin:0 0 12px 0;">Support Our Mission With a Donation</h3>
+              <p style="color:#555555;font-family:Arial,sans-serif;font-size:14px;line-height:1.7;margin:0 0 22px 0;max-width:460px;display:inline-block;">
+                Your generous contributions fund workshops, events, equipment, and resources that allow our student journalists to thrive. Every dollar goes directly toward empowering the next generation of storytellers.
+              </p>
+              <br>
+              <a href="{{ donation_link }}" style="display:inline-block;background-color:#1a3a5c;color:#ffffff;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;padding:14px 38px;border-radius:5px;text-decoration:none;letter-spacing:1px;text-transform:uppercase;">Donate Now</a>
+            </td>
+          </tr>
+
+          <!-- Volunteer CTA -->
+          <tr>
+            <td style="padding:16px 40px 36px 40px;text-align:center;">
+              <p style="color:#1a3a5c;font-family:Arial,sans-serif;font-size:11px;font-weight:bold;text-transform:uppercase;letter-spacing:2px;margin:0 0 10px 0;">Get Involved</p>
+              <h3 style="color:#1a3a5c;font-size:20px;font-family:Georgia,serif;margin:0 0 12px 0;">Volunteer With PressFriends</h3>
+              <p style="color:#555555;font-family:Arial,sans-serif;font-size:14px;line-height:1.7;margin:0 0 22px 0;max-width:460px;display:inline-block;">
+                Whether you can spare one hour or one day a month, your time and expertise make a real impact. Join our community of mentors, event helpers, and supporters who make PressFriends possible.
+              </p>
+              <br>
+              <a href="{{ volunteer_link }}" style="display:inline-block;background-color:#ffffff;color:#1a3a5c;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;padding:13px 38px;border-radius:5px;text-decoration:none;letter-spacing:1px;text-transform:uppercase;border:2px solid #1a3a5c;">Learn How to Volunteer</a>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color:#1a3a5c;padding:24px 40px;text-align:center;">
+              <p style="color:#ffffff;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;margin:0 0 6px 0;">{{ org_name }}</p>
+              <p style="color:#a8c8e8;font-family:Arial,sans-serif;font-size:12px;margin:0 0 10px 0;">501(c)(3) Nonprofit Organization</p>
+              <p style="color:#7aa8c8;font-family:Arial,sans-serif;font-size:11px;margin:0;">
+                To unsubscribe from this newsletter, email
+                <a href="mailto:{{ unsubscribe_email }}" style="color:#a8c8e8;text-decoration:underline;">{{ unsubscribe_email }}</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
