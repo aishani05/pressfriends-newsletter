@@ -31,8 +31,8 @@ requirements.txt             # Same dependencies (repo root for convenience)
 ### 1. Clone and install dependencies
 
 ```bash
-git clone https://github.com/aishani05/test.git
-cd test
+git clone https://github.com/aishani05/pressfriends-newsletter.git
+cd pressfriends-newsletter
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
